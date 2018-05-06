@@ -1,0 +1,61 @@
+AllCops:
+  TargetRubyVersion: 2.4.1
+  DisplayCopNames: true
+  Exclude:
+    - 'bin/**/*'
+    - 'vendor/**/*'
+    - db/schema.rb
+
+# We prefer everything to be self-explanatory
+Style/Documentation:
+  Enabled: false
+
+# We do not care
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+Layout/IndentationWidth:
+  Width: 2
+
+# So when reading code we know that given line has continuation
+Layout/DotPosition:
+  EnforcedStyle: 'trailing'
+
+Layout/AlignParameters:
+  EnforcedStyle: 'with_fixed_indentation'
+
+Layout/IndentArray:
+  EnforcedStyle: 'consistent'
+
+# Lets be reasonable about it
+Metrics/AbcSize:
+  Max: 17
+  Exclude:
+
+# Large blocks and modules are totally fine in rspec
+Metrics/ModuleLength:
+  Exclude:
+    - '**/*_spec.rb'
+
+ClassLength:
+  Max: 250
+
+Metrics/MethodLength:
+  Exclude:
+    - 'db/migrate/*.rb'
+
+Naming/VariableNumber:
+  EnforcedStyle: 'snake_case'

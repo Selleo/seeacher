@@ -1,0 +1,26 @@
+language: ruby
+dist: trusty
+rvm: 2.5.1
+gemfile: Gemfile
+
+services:
+  - redis-server
+
+addons:
+  postgresql: '9.6'
+
+before_install:
+  - gem install bundler
+  - 'echo ''gem: --no-document --no-ri'' > ~/.gemrc'
+  - cp config/database.travis.yml config/database.yml
+
+before_script:
+  - bundle clean --force
+  - bundle exec rake db:create db:migrate
+
+script:
+  - bundle exec rspec
+  - bundle exec rubocop
+
+cache:
+  bundler: true
