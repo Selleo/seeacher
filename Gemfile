@@ -7,13 +7,19 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'aws-sdk-s3', '~> 1'
+gem 'bootstrap', '~> 4.1.1'
 gem 'jbuilder', '~> 2.5'
+gem 'paperclip', '~> 6.0.0'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.6'
 gem 'sass-rails', '~> 5.0'
+gem 'simple_form'
+gem 'slim-rails'
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 3.7'
   gem 'rubocop', '~> 0.55.0'

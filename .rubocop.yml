@@ -22,6 +22,9 @@ Metrics/LineLength:
 
 Metrics/BlockLength:
   Exclude:
+    - 'config/initializers/simple_form_bootstrap.rb'
+    - 'config/environments/production.rb'
+    - 'config/environments/development.rb'
     - 'spec/**/*'
 
 Layout/MultilineOperationIndentation:

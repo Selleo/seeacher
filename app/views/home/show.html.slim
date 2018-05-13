@@ -1,0 +1,12 @@
+h1
+  | The Placeholder.
+
+= simple_form_for @image_example, url: image_examples_path do |f|
+  = f.input :image, as: :file
+  = f.submit
+
+- @image_examples.each do |image_example|
+  = image_tag image_example.image.url(:thumb)
+  = image_tag image_example.image.url(:square)
+  = image_tag image_example.image.url(:medium)
+  br
