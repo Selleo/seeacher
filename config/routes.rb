@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'is_signed_in', to: 'auth#is_signed_in?'
       get 'levels', to: 'levels#levels'
+      get 'levels/:level_id', to: 'levels#level'
     end
   end
 end
