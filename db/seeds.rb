@@ -8,10 +8,12 @@ unless User.find_by(admin: true)
 end
 
 if Rails.env.development?
-  user = User.create(email: "dummy_user#{rand(999_999)}@selleo.com", password: 'password')
+  user = User.create(email: 'dummy_user@selleo.com', password: 'password')
   5.times do |i|
-    level = Level.create(order: i + 1)
-    rand(5..9).times do
+    Level.create(order: i + 1)
+  end
+  Level.all.each_with_index do |level, i|
+    5.times do
       word = Word.create(
         content: ('a'..'z').to_a.sample,
         level_id: level.id
