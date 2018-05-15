@@ -9,13 +9,16 @@ end
 
 gem 'aws-sdk-s3', '~> 1'
 gem 'bootstrap', '~> 4.1.1'
+gem 'devise'
 gem 'jbuilder', '~> 2.5'
 gem 'paperclip', '~> 6.0.0'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.7'
+gem 'rack-cors', require: 'rack/cors'
 gem 'rails', '~> 5.1.6'
 gem 'sass-rails', '~> 5.0'
 gem 'simple_form'
+gem 'simple_token_authentication', '~> 1.0'
 gem 'slim-rails'
 
 group :development, :test do
