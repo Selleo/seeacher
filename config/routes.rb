@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'home#show', controller: 'home'
+
+  authenticate :user, ->(user) { user.admin? } do
+    ActiveAdmin.routes(self)
+  end
+
+  root to: 'admin/dashboard#index'
 
   resource :home, only: [:show]
   resource :guests, only: [:create]
