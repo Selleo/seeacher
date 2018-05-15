@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'home#show', controller: 'home'
 
   resource :home, only: [:show]
+  resource :guests, only: [:create]
   resources :image_examples, only: [:create]
 
   namespace :api do
