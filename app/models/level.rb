@@ -13,4 +13,8 @@ class Level < ApplicationRecord
 
   validates_attachment_content_type :image, content_type: %w[image/jpg image/jpeg image/png]
   validates :order, presence: true
+
+  def user_level_for(user)
+    user_levels.find_by(user_id: user.id)
+  end
 end
