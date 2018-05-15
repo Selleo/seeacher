@@ -1,10 +1,11 @@
 ActiveAdmin.register Level do
-  permit_params :image, :word_id
+  permit_params :image, :word_id, :order
 
   form multipart: true do |f|
     f.semantic_errors
     f.inputs do
       f.input :image, as: :file
+      f.input :order
     end
 
     f.actions
