@@ -1,4 +1,4 @@
-class Api::V1::AuthController < Api::V1::BaseApiController
+class Api::V1::AuthController < ApplicationController
   def is_signed_in?
     if user_signed_in?
       render json: { 'signed_in' => true, 'user' => current_user }.to_json
