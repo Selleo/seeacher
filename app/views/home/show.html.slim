@@ -1,12 +1,9 @@
-h1
-  | The Placeholder.
-
-= simple_form_for @image_example, url: image_examples_path do |f|
-  = f.input :image, as: :file
-  = f.submit
-
-- @image_examples.each do |image_example|
-  = image_tag image_example.image.url(:thumb)
-  = image_tag image_example.image.url(:square)
-  = image_tag image_example.image.url(:medium)
-  br
+| Current user:
+= current_user&.email
+br
+= link_to 'Admin panel', admin_dashboard_path
+br
+- if current_user
+  = link_to 'log out', destroy_session_path(:user)
+- else
+  = link_to 'log in', new_session_path(:user)

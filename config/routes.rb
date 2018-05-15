@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     ActiveAdmin.routes(self)
   end
 
-  root to: 'admin/dashboard#index'
+  root to: 'home#show', controller: 'home'
 
   resource :home, only: [:show]
   resource :guests, only: [:create]
