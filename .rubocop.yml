@@ -28,6 +28,7 @@ Metrics/BlockLength:
     - 'config/environments/production.rb'
     - 'config/environments/development.rb'
     - 'spec/**/*'
+    - 'app/admin/**/*'
 
 Layout/MultilineOperationIndentation:
   EnforcedStyle: indented

@@ -4,11 +4,9 @@ ActiveAdmin.register Word do
   form multipart: true do |f|
     f.semantic_errors
     f.inputs do
-      f.input :level,
-        collection: Level.pluck(:order)
+      f.input :level, collection: Level.pluck(:id), label: 'Level Id'
       f.input :content
     end
-
     f.actions
   end
 end

@@ -4,23 +4,27 @@ ActiveAdmin.register Guest do
   form multipart: true do |f|
     f.semantic_errors
     f.inputs do
-      f.input :word,
-        collection: Word.pluck(:content)
+      f.input :word, collection: Word.all.map { |word| [word.content, word.id] }
       f.input :image, as: :file
     end
-
     f.actions
   end
 
   index do
-    column :word_id
-    column :image do |img|
-      link_to img.image.url do
-        image_tag(img.image.url, size: '32')
+    column :id
+    column :image do |guest|
+      link_to guest.image.url do
+        image_tag(guest.image.url(:thumb))
       end
     end
     column :created_at
     column :updated_at
+    column 'Word Id' do |guest|
+      guest.word.id
+    end
+    column 'Word content', label: 'asdfasd' do |guest|
+      guest.word.content
+    end
     actions
   end
 end

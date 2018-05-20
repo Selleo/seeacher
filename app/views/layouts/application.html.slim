@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title
+      | Seeacher
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    .row
+      .col-md-1
+      .col-md-10
+        - if flash[:notice]
+          br
+          .alert.alert-success
+            = flash[:notice]
+        - if flash[:alert]
+          br
+          .alert.alert-danger
+            = flash[:alert]
+      .col-md-1
+    = yield

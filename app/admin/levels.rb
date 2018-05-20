@@ -7,16 +7,17 @@ ActiveAdmin.register Level do
       f.input :image, as: :file
       f.input :order
     end
-
     f.actions
   end
 
   index do
-    column :image do |img|
-      link_to img.image.url do
-        image_tag(img.image.url, size: '32')
+    column :id
+    column :image do |level|
+      link_to level.image.url do
+        image_tag(level.image.url(:thumb))
       end
     end
+    column :order
     column :created_at
     column :updated_at
     actions

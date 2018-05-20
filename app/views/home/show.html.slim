@@ -1,9 +1,27 @@
-| Current user:
-= current_user&.email
 br
-= link_to 'Admin panel', admin_dashboard_path
-br
-- if current_user
-  = link_to 'log out', destroy_session_path(:user)
-- else
-  = link_to 'log in', new_session_path(:user)
+.row
+  .col-md-1
+  .col-md-10
+    .jumbotron
+      h1.display-4
+        | Welcome to the Seeacher admin panel!
+      p.lead
+        - if current_user
+          span.bold-text
+            => current_user.email
+          | signed in
+        - else
+          | Log in to continue
+      hr.my-4
+      - if current_user
+        .btn-group.btn-group-lg
+          = link_to destroy_session_path(:user), class: 'btn btn-outline-primary btn-lg' do
+              | Log Out
+          - if current_user.admin?
+            = link_to admin_dashboard_path, class: 'btn btn-outline-primary btn-lg' do
+              | Dashboard
+      - else
+        = link_to new_session_path(:user) do
+          .btn.btn-outline-primary.btn-lg
+            | Log In
+  .col-md-1
