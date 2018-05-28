@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get 'is_signed_in', to: 'auth#is_signed_in?'
       get 'levels/:user_id', to: 'levels#levels'
       get 'level/:level_id', to: 'levels#level'
+      post 'user_level/:user_id', to: 'levels#update_progress'
     end
   end
 end
