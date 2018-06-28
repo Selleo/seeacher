@@ -20,7 +20,7 @@ module Seeacher
     # -- all .rb files in that directory are automatically loaded.
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'http://localhost:3000'
+        origins 'https://seeacher-app.herokuapp.com'
         resource '*', headers: :any, methods: %i[get post put delete options]
       end
     end
